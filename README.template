@@ -1,0 +1,16 @@
+Here is a script and a Makefile for generating a <NAME> docset for Dash. The script is loosely based on benzado's script for GNU Make https://github.com/benzado/gnu-make-dash-docset.
+
+- <NAME>: <UPSTREAM LINK>
+- Dash: https://kapeli.com/dash
+
+To generate a docset from the latest edition of the <NAME> Manual, simply
+execute `make` from the same directory as this README file. The latest edition
+will be downloaded from <UPSTREAM HOST> and packaged appropriately.
+
+Requirements:
+
+- any POSIX-compliant shell
+- curl
+- make
+- pup
+- sqlite3
