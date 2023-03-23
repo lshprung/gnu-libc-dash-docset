@@ -25,3 +25,9 @@ This is the main script that builds the docset index. This script does not requi
 ### `src/Info.plist`
 
 This file contains metadata for the docset. Replace `<!-- VALUE -->` with appropriate values. It may be useful to refer to the `Info.plist` file of an existing docset for reference.
+
+---
+
+### Credits
+
+Created by [lshprung](https://github.com/lshprung), and originally based on [benzado](https://github.com/benzado)'s [gnu-make-dash-docset](https://github.com/benzado/gnu-make-dash-docset).
