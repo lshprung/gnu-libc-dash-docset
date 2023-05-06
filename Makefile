@@ -1,4 +1,4 @@
-#DOCSET_NAME = ...
+DOCSET_NAME = glibc
 
 DOCSET_DIR    = $(DOCSET_NAME).docset
 CONTENTS_DIR  = $(DOCSET_DIR)/Contents
@@ -10,10 +10,10 @@ INDEX_FILE      = $(RESOURCES_DIR)/docSet.dsidx
 ICON_FILE       = $(DOCSET_DIR)/icon.png
 ARCHIVE_FILE    = $(DOCSET_NAME).tgz
 
-#SRC_ICON = src/icon.png
+SRC_ICON = src/icon.png
 
-#MANUAL_URL  = ...
-#MANUAL_FILE = tmp/...
+MANUAL_URL  = https://www.gnu.org/software/libc/manual/html_node/libc-html_node.tar.gz
+MANUAL_FILE = tmp/libc-html_node.tar.gz
 
 ERROR_DOCSET_NAME = $(error DOCSET_NAME is unset)
 WARNING_MANUAL_URL = $(warning MANUAL_URL is unset)
@@ -71,9 +71,14 @@ $(DOCUMENTS_DIR): $(RESOURCES_DIR) $(MANUAL_FILE)
 $(INFO_PLIST_FILE): src/Info.plist $(CONTENTS_DIR)
 	cp src/Info.plist $@
 
-$(INDEX_FILE): src/index.sh $(DOCUMENTS_DIR)
+$(INDEX_FILE): src/index-page.sh src/index-terms.sh $(DOCUMENTS_DIR)
 	rm -f $@
-	src/index.sh $@ $(DOCUMENTS_DIR)/*.html
+	src/index-page.sh $@ $(DOCUMENTS_DIR)/libc/*.html
+	src/index-terms.sh "Entry" $@ $(DOCUMENTS_DIR)/libc/Concept-Index.html
+	src/index-terms.sh "Type" $@ $(DOCUMENTS_DIR)/libc/Type-Index.html
+	src/index-terms.sh "Function" $@ $(DOCUMENTS_DIR)/libc/Function-Index.html
+	src/index-terms.sh "Variable" $@ $(DOCUMENTS_DIR)/libc/Variable-Index.html
+	src/index-terms.sh "File" $@ $(DOCUMENTS_DIR)/libc/File-Index.html
 
 $(ICON_FILE): src/icon.png $(DOCSET_DIR)
 	cp $(SRC_ICON) $@
