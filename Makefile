@@ -46,6 +46,9 @@ archive: $(ARCHIVE_FILE)
 clean:
 	rm -rf $(DOCSET_DIR) $(ARCHIVE_FILE)
 
+dist-clean: clean
+	rm -rf tmp
+
 tmp:
 	mkdir -p $@
 
