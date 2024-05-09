@@ -12,7 +12,8 @@ ARCHIVE_FILE    = $(DOCSET_NAME).tgz
 
 SRC_ICON = src/icon.png
 
-MANUAL_URL  = https://www.gnu.org/software/libc/manual/html_node/libc-html_node.tar.gz
+MANUAL_VERSION=latest
+MANUAL_URL  = https://sourceware.org/glibc/manual/$(MANUAL_VERSION)/html_node/libc-html_node.tar.gz
 MANUAL_FILE = tmp/libc-html_node.tar.gz
 
 ERROR_DOCSET_NAME = $(error DOCSET_NAME is unset)

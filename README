@@ -7,6 +7,7 @@ Here is a script and a Makefile for generating a GNU C Library (or "glibc") docs
 To generate a docset from the latest edition of the GNU C Library Manual, simply
 execute `make` from the same directory as this README file. The latest edition
 will be downloaded from https://www.gnu.org/software/libc/manual/html_node/libc-html_node.tar.gz and packaged appropriately.
+A manual version can be specified by passing a MANUAL_VERSION=... argument.
 
 Requirements:
 
