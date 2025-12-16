@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools >= 69.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gnu_libc_dash_docset_generator"
+version = "2025.12.16"
+authors = [
+	{ name="Louie Shprung", email="lshprung@tutanota.com" }
+]
+description = "Dash docset generator for GNU C Library"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+	"Operating System :: OS Independent",
+	"Programming Language :: Python :: 3"
+]
+dependencies = [
+	"dash_docset_builder>=2025.12.16"
+]
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+
+[project.scripts]
+gnu-libc-dash-docset-generator = "gnu_libc_dash_docset_generator.main:main"
+
+[project.urls]
+Homepage = "https://github.com/lshprung/gnu-libc-dash-docset"
+Issues = "https://github.com/lshprung/gnu-libc-dash-docset/issues"
+
+[tool.setuptools.package-data]
+"gnu_libc_dash_docset_generator" = ["resources/*"]
