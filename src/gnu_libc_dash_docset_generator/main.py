@@ -26,6 +26,8 @@ def insert_page(db: DB, html_path: Path) -> None:
 def main() -> None:
     parser: argparse.ArgumentParser = get_argparse_template()
     args: argparse.Namespace = parser.parse_args()
+    index: Gnu_Index_Terms
+    count: int
 
     if not args.MANUAL_SOURCE.exists():
         print(f"Error: invalid MANUAL_SOURCE '{str(args.MANUAL_SOURCE)}'")
@@ -58,12 +60,18 @@ def main() -> None:
             ("Variable", "Variable-Index.html"),
             ("File", "File-Index.html")
     ):
-        _ = Gnu_Index_Terms(
+        index = Gnu_Index_Terms(
                 i[0],
                 db, 
                 Path(docset_skeleton.documents_dir, i[1]),
-                "printindex-index-entry"
         )
+        count = index.insert_index_terms("printindex-index-entry")
+        if count == 0:
+            # couldn't find anything; try again using the colon method
+            count = index.insert_index_terms()
+            if count == 0:
+                # still couldn't find anything: warn the user
+                print(f"Warning: couldn't find any index terms in '{i[1]}'")
 
     # generate plist
     plist: dict[str, typing.Any] = {
