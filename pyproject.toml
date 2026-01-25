@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gnu_libc_dash_docset_generator"
-version = "2026.01.03"
+version = "2026.01.25"
 authors = [
 	{ name="Louie Shprung", email="lshprung@tutanota.com" }
 ]
@@ -16,7 +16,7 @@ classifiers = [
 	"Programming Language :: Python :: 3"
 ]
 dependencies = [
-	"dash_docset_builder>=2026.01.03"
+	"dash_docset_builder>=2026.01.25"
 ]
 license = "GPL-3.0-or-later"
 license-files = ["LICENSE"]
